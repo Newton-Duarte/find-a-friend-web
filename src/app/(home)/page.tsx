@@ -1,16 +1,11 @@
 import Image from 'next/image'
-import { MagnifyingGlass } from '@phosphor-icons/react/dist/ssr'
 import { Select } from '@/components/select'
 import { Container } from '@/styles/container'
-import { Button } from '@/components/button'
 import { Text } from '@/components/text'
 
 import * as S from './styles'
-
-const citiesOptions = [
-  { id: 1, label: 'Maceió', value: 'maceio' },
-  { id: 2, label: 'Recife', value: 'recife' },
-]
+import { SearchPetsButton } from './search-pets-button'
+import { citiesOptions } from '@/utils/city-options'
 
 export default function Home() {
   return (
@@ -28,9 +23,7 @@ export default function Home() {
           <S.Actions>
             <Text>Busque um amigo:</Text>
             <Select options={citiesOptions} defaultValue="maceio" />
-            <Button type="button" variant="tertiary" size="sm">
-              <MagnifyingGlass size={26} color="#0D3B66" />
-            </Button>
+            <SearchPetsButton city={citiesOptions[0].value} />
           </S.Actions>
         </S.Footer>
       </Container>
