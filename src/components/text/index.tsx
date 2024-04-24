@@ -3,7 +3,7 @@ import { ComponentProps, ElementType } from 'react'
 
 export const Text = styled('p', {
   margin: 0,
-  color: '$white',
+  color: '$secondary',
   lineHeight: '$base',
 
   variants: {
