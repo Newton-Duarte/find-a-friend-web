@@ -14,13 +14,18 @@ type Option = {
 type SelectProps = {
   options: Option[]
   defaultValue?: string
+  placeholder?: string
 }
 
-export function Select({ options = [], defaultValue }: SelectProps) {
+export function Select({
+  options = [],
+  defaultValue,
+  placeholder,
+}: SelectProps) {
   return (
     <RadixSelect.Root defaultValue={defaultValue}>
       <S.SelectTrigger>
-        <RadixSelect.Value placeholder="Maceió" />
+        <RadixSelect.Value placeholder={placeholder} />
         <S.SelectIcon>
           <CaretDown size={16} />
         </S.SelectIcon>
