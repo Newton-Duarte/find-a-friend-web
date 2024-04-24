@@ -36,7 +36,7 @@ export const Button = styled('button', {
         background: '$primary',
 
         '&:not(:disabled):hover': {
-          background: '$primary_dark',
+          filter: 'brightness(0.9)',
         },
 
         '&:disabled': {
@@ -48,8 +48,7 @@ export const Button = styled('button', {
         background: '$secondary',
 
         '&:not(:disabled):hover': {
-          background: '$gray600',
-          color: '$white',
+          filter: 'brightness(0.9)',
         },
 
         '&:disabled': {
@@ -62,7 +61,7 @@ export const Button = styled('button', {
         background: '$tertiary',
 
         '&:not(:disabled):hover': {
-          color: '$secondary',
+          filter: 'brightness(0.9)',
         },
 
         '&:disabled': {
