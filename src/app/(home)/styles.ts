@@ -40,4 +40,8 @@ export const Actions = styled('div', {
   alignItems: 'center',
   gap: '1rem',
   flex: 1,
+
+  p: {
+    color: '$white',
+  },
 })
