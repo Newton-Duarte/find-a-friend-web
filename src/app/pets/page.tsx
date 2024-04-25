@@ -1,6 +1,6 @@
+import Link from 'next/link'
 import Image from 'next/image'
 
-import * as S from './styles'
 import { Select } from '@/components/select'
 import { Button } from '@/components/button'
 import { MagnifyingGlass } from '@phosphor-icons/react/dist/ssr'
@@ -13,6 +13,8 @@ import {
   petSizes,
   petTypes,
 } from '@/utils/pet-utils'
+
+import * as S from './styles'
 
 export default function Pets() {
   return (
@@ -67,23 +69,25 @@ export default function Pets() {
         </S.Header>
         <S.PetsList>
           {[1, 2, 3, 4, 5, 6].map((pet) => (
-            <S.Pet key={pet}>
-              <Image
-                src="/images/pets/alfredo.png"
-                width={274}
-                height={135}
-                alt=""
-              />
-              <S.IconBox>
+            <Link key={pet} href={`/pets/${pet}`}>
+              <S.Pet>
                 <Image
-                  src="/images/logo-icon.png"
-                  width={15}
-                  height={15}
+                  src="/images/pets/alfredo.png"
+                  width={274}
+                  height={135}
                   alt=""
                 />
-              </S.IconBox>
-              <Text size="lg">Alfredo</Text>
-            </S.Pet>
+                <S.IconBox>
+                  <Image
+                    src="/images/logo-icon.png"
+                    width={15}
+                    height={15}
+                    alt=""
+                  />
+                </S.IconBox>
+                <Text size="lg">Alfredo</Text>
+              </S.Pet>
+            </Link>
           ))}
         </S.PetsList>
       </S.Content>
