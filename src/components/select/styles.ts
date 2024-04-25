@@ -1,3 +1,5 @@
+'use client'
+
 import { styled } from '@/styles'
 import * as RadixSelect from '@radix-ui/react-select'
 

@@ -1,3 +1,5 @@
+'use client'
+
 import { globalCss } from '.'
 
 export const globalStyles = globalCss({

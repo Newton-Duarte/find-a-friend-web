@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
 import { Nunito } from 'next/font/google'
-import { globalStyles } from '@/styles/global'
-import { getCssText } from '@/styles'
+import Providers from './providers'
+
+import StitchesRegistry from '@/lib/stiches-registry'
 
 const nunito = Nunito({ subsets: ['latin'] })
 
@@ -11,8 +12,6 @@ export const metadata: Metadata = {
     'Leve a felicidade para o seu lar. Encontre o animal de estimação ideal para seu estilo de vida!',
 }
 
-globalStyles()
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -20,13 +19,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt">
-      <head>
-        <style
-          id="stitches"
-          dangerouslySetInnerHTML={{ __html: getCssText() }}
-        />
-      </head>
-      <body className={nunito.className}>{children}</body>
+      <body className={nunito.className}>
+        <StitchesRegistry>
+          <Providers>{children}</Providers>
+        </StitchesRegistry>
+      </body>
     </html>
   )
 }
