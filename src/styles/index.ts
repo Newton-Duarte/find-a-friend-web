@@ -70,8 +70,8 @@ export const { styled, getCssText, globalCss } = createStitches({
 
     radii: {
       xs: '3px',
-      sm: '6px',
-      md: '12px',
+      sm: '5px',
+      md: '10px',
       lg: '20px',
       full: '99999px',
     },
