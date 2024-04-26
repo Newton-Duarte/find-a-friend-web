@@ -12,7 +12,6 @@ export function PasswordField() {
   return (
     <TextField
       type={showPassword ? 'text' : 'password'}
-      placeholder="Sua senha"
       variant="lg"
       endIcon={
         showPassword ? (
@@ -20,14 +19,14 @@ export function PasswordField() {
             type="button"
             onClick={() => setShowPassword(!showPassword)}
           >
-            <Eye size={20} />
+            <Eye size={16} />
           </S.IconButton>
         ) : (
           <S.IconButton
             type="button"
             onClick={() => setShowPassword(!showPassword)}
           >
-            <EyeClosed size={20} />
+            <EyeClosed size={16} />
           </S.IconButton>
         )
       }
