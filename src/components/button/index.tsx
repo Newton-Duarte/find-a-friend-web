@@ -48,6 +48,7 @@ export const Button = styled('button', {
 
       secondary: {
         background: '$secondary',
+        color: '$white',
 
         '&:not(:disabled):hover': {
           filter: 'brightness(0.9)',
@@ -94,7 +95,7 @@ export const Button = styled('button', {
         },
       },
       default: {
-        color: 'inherit',
+        color: '$white',
       },
     },
   },
