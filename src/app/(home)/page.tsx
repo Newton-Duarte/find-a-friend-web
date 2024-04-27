@@ -6,12 +6,13 @@ import { Text } from '@/components/text'
 import * as S from './styles'
 import { SearchPetsButton } from './search-pets-button'
 import { citiesOptions } from '@/utils/city-options'
+import { Logo } from '@/components/logo'
 
 export default function Home() {
   return (
     <S.Main>
       <Container>
-        <Image src="/images/logo.svg" width={215} height={56} alt="" />
+        <Logo />
         <S.Content>
           <Text>Leve a felicidade para o seu lar</Text>
           <Image src="/images/home-pets.png" width={592} height={305} alt="" />
