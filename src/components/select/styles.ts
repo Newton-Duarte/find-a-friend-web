@@ -36,6 +36,7 @@ export const SelectTrigger = styled(RadixSelect.SelectTrigger, {
       primary: {
         backgroundColor: '$primary_dark',
         color: '$white',
+        border: '1px solid $colors$white',
       },
     },
 
