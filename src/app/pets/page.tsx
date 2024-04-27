@@ -27,6 +27,7 @@ export default function Pets() {
             <Select
               options={citiesOptions}
               defaultValue={citiesOptions[0].value}
+              variant="primary"
             />
             <Button variant="tertiary" size="sm">
               <MagnifyingGlass size={26} color="#0D3B66" />
@@ -39,24 +40,34 @@ export default function Pets() {
           </Text>
           <S.FormGroup>
             <Text size="sm">Idade</Text>
-            <Select options={petAges} defaultValue={petAges[0].value} />
+            <Select
+              options={petAges}
+              defaultValue={petAges[0].value}
+              variant="primary"
+            />
           </S.FormGroup>
           <S.FormGroup>
             <Text size="sm">Nível de energia</Text>
             <Select
               options={petEnergyLevels}
               defaultValue={petEnergyLevels[0].value}
+              variant="primary"
             />
           </S.FormGroup>
           <S.FormGroup>
             <Text size="sm">Porte do animal</Text>
-            <Select options={petSizes} defaultValue={petSizes[0].value} />
+            <Select
+              options={petSizes}
+              defaultValue={petSizes[0].value}
+              variant="primary"
+            />
           </S.FormGroup>
           <S.FormGroup>
             <Text size="sm">Nível de independência</Text>
             <Select
               options={petIndependenceLevels}
               defaultValue={petIndependenceLevels[0].value}
+              variant="primary"
             />
           </S.FormGroup>
         </S.SidebarFilters>

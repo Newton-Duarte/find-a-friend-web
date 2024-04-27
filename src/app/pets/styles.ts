@@ -25,10 +25,6 @@ export const SidebarHeader = styled('div', {
     display: 'flex',
     alignItems: 'center',
     gap: '0.75rem',
-
-    '[role="combobox"]': {
-      border: '1px solid $colors$white',
-    },
   },
 })
 
