@@ -1,4 +1,5 @@
 'use client'
+
 import { ArrowDown, ArrowUp, CaretDown } from '@phosphor-icons/react'
 import { SelectItem } from './select-item'
 
@@ -15,16 +16,20 @@ type SelectProps = {
   options: Option[]
   defaultValue?: string
   placeholder?: string
+  variant?: 'default' | 'primary'
+  size?: 'default' | 'fullWidth'
 }
 
 export function Select({
   options = [],
   defaultValue,
   placeholder,
+  variant = 'default',
+  size = 'default',
 }: SelectProps) {
   return (
     <RadixSelect.Root defaultValue={defaultValue}>
-      <S.SelectTrigger>
+      <S.SelectTrigger variant={variant} size={size}>
         <RadixSelect.Value placeholder={placeholder} />
         <S.SelectIcon>
           <CaretDown size={16} />

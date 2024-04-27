@@ -8,17 +8,52 @@ export const SelectTrigger = styled(RadixSelect.SelectTrigger, {
   display: 'inline-flex',
   alignItems: 'center',
   justifyContent: 'center',
-  borderRadius: 12,
+  borderRadius: '$md',
   padding: '0 15px',
-  fontSize: '$xl',
+  fontSize: '$lg',
   lineHeight: 1,
-  minWidth: 180,
   height: 48,
   gap: 5,
-  backgroundColor: '$primary_dark',
-  color: '$white',
   '&:focus': { boxShadow: `0 0 0 2px $colors$white` },
-  '&[data-placeholder]': { color: '$white' },
+  '&[data-placeholder]': { color: '$secondary' },
+
+  variants: {
+    variant: {
+      default: {
+        backgroundColor: '#F5F8FA',
+        color: '$secondary',
+        border: '1px solid #D3E2E5',
+
+        '&:focus': {
+          borderColor: '$secondary',
+        },
+
+        svg: {
+          color: '$secondary',
+        },
+      },
+
+      primary: {
+        backgroundColor: '$primary_dark',
+        color: '$white',
+      },
+    },
+
+    size: {
+      default: {
+        minWidth: 180,
+      },
+
+      fullWidth: {
+        minWidth: '100%',
+      },
+    },
+  },
+
+  defaultVariants: {
+    variant: 'default',
+    size: 'default',
+  },
 })
 
 export const SelectIcon = styled(RadixSelect.SelectIcon, {
