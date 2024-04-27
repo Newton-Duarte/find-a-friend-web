@@ -22,6 +22,12 @@ export const petIndependenceLevels = [
   { id: 3, value: 'high', label: 'Alta' },
 ]
 
+export const petEnvironments = [
+  { id: 1, value: 'small', label: 'Ambiente Pequeno' },
+  { id: 2, value: 'medium', label: 'Ambiente Médio' },
+  { id: 3, value: 'large', label: 'Ambiente Amplo' },
+]
+
 export const petTypes = [
   { id: 1, value: 'cats-dogs', label: 'Gatos e Cachorros' },
 ]
