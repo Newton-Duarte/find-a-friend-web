@@ -38,22 +38,22 @@ export default function Pets() {
             Filtros
           </Text>
           <S.FormGroup>
-            <Text size="xs">Idade</Text>
+            <Text size="sm">Idade</Text>
             <Select options={petAges} defaultValue={petAges[0].value} />
           </S.FormGroup>
           <S.FormGroup>
-            <Text size="xs">Nível de energia</Text>
+            <Text size="sm">Nível de energia</Text>
             <Select
               options={petEnergyLevels}
               defaultValue={petEnergyLevels[0].value}
             />
           </S.FormGroup>
           <S.FormGroup>
-            <Text size="xs">Porte do animal</Text>
+            <Text size="sm">Porte do animal</Text>
             <Select options={petSizes} defaultValue={petSizes[0].value} />
           </S.FormGroup>
           <S.FormGroup>
-            <Text size="xs">Nível de independência</Text>
+            <Text size="sm">Nível de independência</Text>
             <Select
               options={petIndependenceLevels}
               defaultValue={petIndependenceLevels[0].value}
