@@ -13,6 +13,7 @@ import {
   petSizes,
   petTypes,
 } from '@/utils/pet-utils'
+import { Logo } from '@/components/logo'
 
 import * as S from './styles'
 
@@ -21,7 +22,7 @@ export default function Pets() {
     <S.Wrapper>
       <S.Sidebar>
         <S.SidebarHeader>
-          <Image src="/images/logo-icon.png" width={45} height={46} alt="" />
+          <Logo width={180} height={45} />
           <div>
             <Select
               options={citiesOptions}
