@@ -2,8 +2,6 @@
 
 import { SignOut } from '@phosphor-icons/react'
 import { useRouter } from 'next/navigation'
-
-import * as S from './styles'
 import { Button } from '@/components/button'
 
 export default function SignOutButton() {
