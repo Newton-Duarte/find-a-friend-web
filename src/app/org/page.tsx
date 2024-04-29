@@ -1,136 +1,97 @@
-import Image from 'next/image'
 import Link from 'next/link'
-import { Upload, FileText, XSquare, Plus } from '@phosphor-icons/react/dist/ssr'
-import { Text } from '@/components/text'
-import BackButton from './back-button'
-import SignOutButton from './sign-out-button'
-import { TextField } from '@/components/textfield'
-import { TextArea } from '@/components/textarea'
+import Image from 'next/image'
+
 import { Select } from '@/components/select'
+import { Text } from '@/components/text'
 import {
   petAges,
   petEnergyLevels,
-  petEnvironments,
   petIndependenceLevels,
   petSizes,
 } from '@/utils/pet-utils'
+import { Logo } from '@/components/logo'
+import { Button } from '@/components/button'
 
 import * as S from './styles'
 
-type PetPageProps = {
-  params: {
-    id: string
-  }
-}
-
-export default function OrgPage({ params }: PetPageProps) {
+export default function OrgPage() {
   return (
-    <S.Container>
+    <S.Wrapper>
       <S.Sidebar>
-        <Link href="/pets">
-          <Image src="/images/logo-icon.png" width={45} height={46} alt="" />
-        </Link>
-        <BackButton />
+        <S.SidebarHeader>
+          <Logo width={180} height={45} />
+        </S.SidebarHeader>
+        <S.SidebarFilters>
+          <Text size="2xl" as="h4">
+            Filtros
+          </Text>
+          <S.FormGroup>
+            <Text size="sm">Idade</Text>
+            <Select
+              options={petAges}
+              defaultValue={petAges[0].value}
+              variant="primary"
+            />
+          </S.FormGroup>
+          <S.FormGroup>
+            <Text size="sm">Nível de energia</Text>
+            <Select
+              options={petEnergyLevels}
+              defaultValue={petEnergyLevels[0].value}
+              variant="primary"
+            />
+          </S.FormGroup>
+          <S.FormGroup>
+            <Text size="sm">Porte do animal</Text>
+            <Select
+              options={petSizes}
+              defaultValue={petSizes[0].value}
+              variant="primary"
+            />
+          </S.FormGroup>
+          <S.FormGroup>
+            <Text size="sm">Nível de independência</Text>
+            <Select
+              options={petIndependenceLevels}
+              defaultValue={petIndependenceLevels[0].value}
+              variant="primary"
+            />
+          </S.FormGroup>
+        </S.SidebarFilters>
       </S.Sidebar>
       <S.Content>
-        <S.Organization>
-          <S.OrganizationInfo>
-            <S.IconBox>
-              <Image
-                src="/images/logo-icon.png"
-                width={27}
-                height={28}
-                alt=""
-              />
-            </S.IconBox>
-            <div>
-              <Text size="2xl" as="h4">
-                Seu Cãopanheiro
-              </Text>
-              <Text>Rua do meio, 123 , Boa viagem, Recife - PE </Text>
-            </div>
-          </S.OrganizationInfo>
-          <SignOutButton />
-        </S.Organization>
-        <S.ContentWrapper>
-          <S.SectionTitle size="2xl" as="h2">
-            Adicione um pet
-          </S.SectionTitle>
-          <S.Form>
-            <S.FormGroup>
-              <label htmlFor="name">Nome</label>
-              <TextField type="text" variant="lg" />
-            </S.FormGroup>
-            <S.FormGroup>
-              <label htmlFor="name">Sobre</label>
-              <TextArea variant="fullWidth" size="lg" />
-            </S.FormGroup>
-            <S.FormGroup>
-              <label htmlFor="name">Idade</label>
-              <Select options={petAges} defaultValue={petAges[0].value} />
-            </S.FormGroup>
-            <S.FormGroup>
-              <label htmlFor="name">Porte</label>
-              <Select options={petSizes} defaultValue={petSizes[0].value} />
-            </S.FormGroup>
-            <S.FormGroup>
-              <label htmlFor="name">Nível de energia</label>
-              <Select
-                options={petEnergyLevels}
-                defaultValue={petEnergyLevels[0].value}
-              />
-            </S.FormGroup>
-            <S.FormGroup>
-              <label htmlFor="name">Nível de independência</label>
-              <Select
-                options={petIndependenceLevels}
-                defaultValue={petIndependenceLevels[0].value}
-              />
-            </S.FormGroup>
-            <S.FormGroup>
-              <label htmlFor="name">Ambiente</label>
-              <Select
-                options={petEnvironments}
-                defaultValue={petEnvironments[0].value}
-              />
-            </S.FormGroup>
-            <S.FormGroup>
-              <label htmlFor="photos">Fotos</label>
-              <S.Photos>
-                <S.PhotosDropContainer>
-                  <Upload size={24} />
-                  <Text>Arraste e solte o arquivo</Text>
-                </S.PhotosDropContainer>
-                <S.Photo>
-                  <div>
-                    <FileText size={24} />
-                    <Text>pictureexemplo.png</Text>
-                  </div>
-                  <S.RemovePhoto>
-                    <XSquare size={24} />
-                  </S.RemovePhoto>
-                </S.Photo>
-                <S.AddItem type="button">
-                  <Plus size={24} />
-                </S.AddItem>
-              </S.Photos>
-            </S.FormGroup>
-            <S.Requirements>
-              <S.SectionTitle size="2xl" as="h2" style={{ margin: '2rem 0' }}>
-                Requisitos para adoção
-              </S.SectionTitle>
-              <S.FormGroup>
-                <label htmlFor="name">Requisito</label>
-                <TextField type="text" variant="lg" />
-              </S.FormGroup>
-              <S.AddItem type="button">
-                <Plus size={24} />
-              </S.AddItem>
-            </S.Requirements>
-            <S.ConfirmButton>Confirmar</S.ConfirmButton>
-          </S.Form>
-        </S.ContentWrapper>
+        <S.Header>
+          <Text size="2xl">
+            <strong>324 pets</strong> cadastrados
+          </Text>
+          <Link href="/org/pets/create" passHref>
+            <Button size="sm">Adicionar</Button>
+          </Link>
+        </S.Header>
+        <S.PetsList>
+          {[1, 2, 3, 4, 5, 6].map((pet) => (
+            <Link key={pet} href={`/org/pets/${pet}`}>
+              <S.Pet>
+                <Image
+                  src="/images/pets/alfredo.png"
+                  width={274}
+                  height={135}
+                  alt=""
+                />
+                <S.IconBox>
+                  <Image
+                    src="/images/logo-icon.png"
+                    width={15}
+                    height={15}
+                    alt=""
+                  />
+                </S.IconBox>
+                <Text size="lg">Alfredo</Text>
+              </S.Pet>
+            </Link>
+          ))}
+        </S.PetsList>
       </S.Content>
-    </S.Container>
+    </S.Wrapper>
   )
 }
