@@ -12,13 +12,7 @@ import BackButton from './back-button'
 
 import * as S from './styles'
 
-type PetPageProps = {
-  params: {
-    id: string
-  }
-}
-
-export default function PetPage({ params }: PetPageProps) {
+export default function PetPage() {
   return (
     <S.Container>
       <S.Sidebar>

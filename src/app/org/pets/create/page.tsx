@@ -17,13 +17,7 @@ import {
 
 import * as S from './styles'
 
-type PetPageProps = {
-  params: {
-    id: string
-  }
-}
-
-export default function CreatePetPage({ params }: PetPageProps) {
+export default function CreatePetPage() {
   return (
     <S.Container>
       <S.Sidebar>
