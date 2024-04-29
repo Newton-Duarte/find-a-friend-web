@@ -154,7 +154,7 @@ export const Photo = styled('div', {
   padding: '1rem',
   borderRadius: '$md',
 
-  div: {
+  '> div:not(:last-of-type)': {
     display: 'flex',
     alignItems: 'center',
     gap: '0.5rem',
