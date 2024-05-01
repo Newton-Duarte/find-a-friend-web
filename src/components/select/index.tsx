@@ -14,6 +14,7 @@ type Option = {
 
 type SelectProps = {
   options: Option[]
+  onChange: (id: string) => void
   defaultValue?: string
   placeholder?: string
   variant?: 'default' | 'primary'
@@ -22,13 +23,14 @@ type SelectProps = {
 
 export function Select({
   options = [],
+  onChange,
   defaultValue,
   placeholder,
   variant = 'default',
   size = 'default',
 }: SelectProps) {
   return (
-    <RadixSelect.Root defaultValue={defaultValue}>
+    <RadixSelect.Root defaultValue={defaultValue} onValueChange={onChange}>
       <S.SelectTrigger variant={variant} size={size}>
         <RadixSelect.Value placeholder={placeholder} />
         <S.SelectIcon>
