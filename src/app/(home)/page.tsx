@@ -1,12 +1,10 @@
 import Image from 'next/image'
-import { Select } from '@/components/select'
 import { Container } from '@/styles/container'
 import { Text } from '@/components/text'
+import { Logo } from '@/components/logo'
+import { SearchPets } from './search-pets'
 
 import * as S from './styles'
-import { SearchPetsButton } from './search-pets-button'
-import { citiesOptions } from '@/utils/city-options'
-import { Logo } from '@/components/logo'
 
 export default function Home() {
   return (
@@ -23,8 +21,7 @@ export default function Home() {
           </Text>
           <S.Actions>
             <Text>Busque um amigo:</Text>
-            <Select options={citiesOptions} defaultValue="maceio" />
-            <SearchPetsButton city={citiesOptions[0].value} />
+            <SearchPets />
           </S.Actions>
         </S.Footer>
       </Container>

@@ -47,3 +47,9 @@ export const Actions = styled('div', {
     color: '$white',
   },
 })
+
+export const Form = styled('form', {
+  display: 'flex',
+  alignItems: 'center',
+  gap: '0.75rem',
+})
