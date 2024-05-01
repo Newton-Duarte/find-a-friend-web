@@ -14,6 +14,7 @@ export const SelectTrigger = styled(RadixSelect.SelectTrigger, {
   lineHeight: 1,
   height: 48,
   gap: 5,
+  boxSizing: 'border-box',
   '&:focus': { boxShadow: `0 0 0 2px $colors$white` },
   '&[data-placeholder]': { color: '$secondary' },
 
