@@ -20,12 +20,6 @@ export const SidebarHeader = styled('div', {
   img: {
     marginBottom: '$6',
   },
-
-  '> div': {
-    display: 'flex',
-    alignItems: 'center',
-    gap: '0.75rem',
-  },
 })
 
 export const SidebarFilters = styled('div', {
