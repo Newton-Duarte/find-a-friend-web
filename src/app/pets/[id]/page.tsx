@@ -9,10 +9,19 @@ import {
 } from '@phosphor-icons/react/dist/ssr'
 import { Text } from '@/components/text'
 import BackButton from './back-button'
+import { getPetById } from '@/api/get-pet-by-id'
 
 import * as S from './styles'
 
-export default function PetPage() {
+type PetPageParams = {
+  params: {
+    id: string
+  }
+}
+
+export default async function PetPage({ params: { id } }: PetPageParams) {
+  const data = await getPetById(id)
+
   return (
     <S.Container>
       <S.Sidebar>
@@ -46,12 +55,9 @@ export default function PetPage() {
           </S.PetImages>
           <S.PetInfo>
             <Text size="2xl" as="h3">
-              Alfredo
+              {data.pet.name}
             </Text>
-            <Text size="lg">
-              Eu sou um lindo doguinho de 3 anos, um jovem bricalhão que adora
-              fazer companhia, uma bagunça mas também ama uma soneca.
-            </Text>
+            <Text size="lg">{data.pet.description}</Text>
           </S.PetInfo>
           <S.PetDetails>
             <S.PetDetail>
@@ -101,12 +107,12 @@ export default function PetPage() {
               </S.IconBox>
               <div>
                 <Text size="2xl" as="h4">
-                  Seu Cãopanheiro
+                  {data.pet.organization?.name}
                 </Text>
-                <Text>Rua do meio, 123 , Boa viagem, Recife - PE </Text>
+                <Text>{`${data.pet.organization?.street_name}, ${data.pet.organization?.street_number}, ${data.pet.organization?.neighborhood}, ${data.pet.organization?.city}`}</Text>
                 <Link href="#">
                   <WhatsappLogo size={24} weight="fill" />
-                  <Text>81 1234-4567</Text>
+                  <Text>{data.pet.organization?.phone}</Text>
                 </Link>
               </div>
             </S.OrganizationInfo>
